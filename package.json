@@ -4,7 +4,7 @@
   "description": "A perfect place to nurture your memories",
   "main": "index.js",
   "scripts": {
-    "test": "node ./src/server.js"
+    "start": "node ./src/server.js"
   },
   "author": "Rosh & Krish",
   "license": "ISC",
