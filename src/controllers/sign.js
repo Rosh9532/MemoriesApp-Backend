@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
@@ -75,4 +75,9 @@ exports.login = (req, res) => {
 
 
         })
+}
+
+exports.signout=(req,res)=>{
+    res.clearCookie('token');
+    res.status(200).json({message:"Signout Successfully..!"})
 }

@@ -46,13 +46,13 @@ app.use(passport.session())
 
 const authroutes=require('./routes/auth')
 const profileroutes=require('./routes/profile')
-
+const postroutes = require('./routes/post')
 
 app.use('/auth',authroutes)
 app.use('/api',profileroutes)
+app.use('/api', postroutes)
 
 //mongoose connection
-
 mongoose.connect(`${process.env.MONGO_URI}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,

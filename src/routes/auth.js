@@ -1,8 +1,9 @@
 const express=require("express");
 const passport=require('passport');
-const User = require("../models/User");
+const User = require("../models/user");
 const jwt=require("jsonwebtoken");
-const { signup, login } = require("../controllers/sign");
+const { signup, login, signout } = require("../controllers/sign");
+const { requireSignin } = require("../middleware");
 
 
 const router=express.Router();
@@ -29,12 +30,9 @@ router.get('/google/callback',passport.authenticate('google',{
 
 //Signup with username and passowrd
 router.post('/signup',signup);
-router.post('/login',login)
+router.post('/login',login);
+router.post('/signout',requireSignin ,signout);
 
 
-router.get('/logout',(req,res)=>{
-    req.logout()
-    res.redirect('/')
-})
 
 module.exports=router
